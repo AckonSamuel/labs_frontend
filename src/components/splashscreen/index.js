@@ -1,58 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="#">
-        KNUST Engineering laboratory
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const theme = createTheme();
+import Copyright from './../../Copyright';
 
 export default function SplashScreen() {
     let navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const studentLogin = () => {
+    const adminLogin = () => {
       dispatch(() => {
-        navigate('auth/students/login');
+        navigate('auth/login');
       })
-    }
+    };
 
-    const staffLogin = () => {
-      dispatch(() => {
-        navigate('auth/staffs/login');
-      })
-    }
-
-    const clubLogin = () => {
-      dispatch(() => {
-        navigate('auth/clubs/login');
-      })
-    }
+    const guestLogin = () => {
+        dispatch(() => {
+          navigate('auth/login');
+        })
+      }
 
   return (
-    <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
-        <CssBaseline />
         <Grid
           item
           xs={false}
@@ -95,7 +70,7 @@ export default function SplashScreen() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Choose Sign in option
+              Continue as
             </Typography>
               <Button
                 type="submit"
@@ -103,9 +78,9 @@ export default function SplashScreen() {
                 variant="contained"
                 id='login-btn'
                 sx={{ mt: 3, mb: 2, backgroundColor: 'green' }}
-                onClick={studentLogin}
+                onClick={adminLogin}
               >
-            Explore as Student
+            Admin
               </Button>
               <Button
                 type="submit"
@@ -113,24 +88,13 @@ export default function SplashScreen() {
                 variant="contained"
                 id='login-btn'
                 sx={{ mt: 3, mb: 2, backgroundColor: 'green' }}
-                onClick={clubLogin}
+                onClick={guestLogin}
               >
-            Explore as Club
-              </Button>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                id='login-btn'
-                sx={{ mt: 3, mb: 2, backgroundColor: 'green' }}
-                onClick={staffLogin}
-              >
-            Explore as Staff
+            Guest
               </Button>
               <Copyright sx={{ mt: 5 }} />
             </Box>
         </Grid>
       </Grid>
-    </ThemeProvider>
   );
 }

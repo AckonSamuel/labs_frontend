@@ -2,12 +2,12 @@
 import { Routes, Route } from "react-router-dom";
 
 // @mui material components
-import {createTheme} from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
-import { ThemeProvider } from '@mui/styles';
 import CssBaseline from "@mui/material/CssBaseline";
+import createEmotionCache from "./createEmotionCache";
 
-import routes from "routes";
+import routes from "./routes";
 
 
 const App = () => {
