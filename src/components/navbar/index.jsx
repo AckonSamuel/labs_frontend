@@ -2,41 +2,79 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
+import SignInButton from './../sign-in-button';
+import Logo from './../logo';
 
 const preventDefault = (event) => event.preventDefault();
 
 export default function Navbar() {
   return (
-    <Box>
     <Box
       sx={{
-        typography: 'body1',
-        '& > :not(style) + :not(style)': {
-          ml: 2,
-        },
-        outline: 'solid #fff',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center',
-        gap: 2,
-        height: 60,
-        alignItems: 'center',
+        width: '100%',
+        paddingLeft: 10,
+        paddingRight: 10,
       }}
-      onClick={preventDefault}
     >
-
-      <Link href="#">Home</Link>
-      <Link href="#" color="inherit">
-        How it works
-      </Link>
-      <Link href="#" variant="body2">
-        About us
-      </Link>
-      <Link href="#" variant="body">
-        Help Center
-      </Link> 
+      <Logo />
+      <Box
+        sx={{
+          typography: 'body1',
+          '& > :not(style) + :not(style)': {
+            ml: 2,
+          },
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+          gap: 2,
+          height: 60,
+          width: 'auto',
+          alignItems: 'center',
+        }}
+        onClick={preventDefault}
+      >
+        <Link href="#" underline="hover" sx={{
+            color: '#CDCDCD',
+            '&:hover': {
+              color: 'white',
+            },
+        }}>
+          Home
+        </Link>
+        <Link href="#" underline="hover"
+        sx={{
+          color: '#CDCDCD',
+          '&:hover': {
+            color: 'white',
+          },
+      }}
+        >
+          How it works
+        </Link>
+        <Link href="#" underline="hover"
+        sx={{
+          color: '#CDCDCD',
+          '&:hover': {
+            color: 'white',
+          },
+      }}>
+          About us
+        </Link>
+        <Link href="#" underline="hover"
+        sx={{
+          color: '#CDCDCD',
+          '&:hover': {
+            color: 'white',
+          },
+      }}>
+          Help Center
+        </Link>
       </Box>
+      <SignInButton />
     </Box>
-
   );
 }
