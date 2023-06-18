@@ -3,12 +3,15 @@ import Button from '@mui/material/Button';
 
 const SignInButton = () => {
     return (
-        <Button
+        <Button variant="contained"
             sx={{
                 backgroundColor: 'transparent',
-                borderRadius: '16px',
-                borderColor: '#fff',
-                textColor: "#fff"
+                borderRadius: '32px',
+                color: "#fff",
+                width: 150,
+                height: 40,
+                border: '1px solid #fff',
+                marginTop: 'auto',
             }}>Sign in</Button>
     )
 };
