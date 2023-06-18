@@ -1,18 +1,24 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import { ArrowForward } from '@mui/icons-material';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 const ExploreButton = () => {
     return (
-        <Button
-            sx={{
-                backgroundColor: 'White',
-                borderRadius: '16px',
-                borderColor: '#fff',
-                textColor: "#000"
-            }}>Explore Labs DB 
-            <ArrowForward />
-            </Button>
+        <Button sx={{
+            background: '#fff',
+            color: '#000',
+            borderRadius: '32px',
+            width: 200,
+            display: 'flex',
+            flexDirection: 'row',
+            padding: 1,
+            justifyContent: 'space-around',
+            '&:hover': {
+                color: '#fff',
+            }
+          }} variant="contained">Explore Labs DB
+          <KeyboardDoubleArrowRightIcon /> 
+          </Button>
     )
 };
 
