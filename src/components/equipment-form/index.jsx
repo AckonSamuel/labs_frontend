@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
+import Typography from '@mui/material/Typography';
 
 export default function EquipmentForm() {
 
@@ -13,11 +14,14 @@ export default function EquipmentForm() {
                 borderRadius: '32px',
                 outline: 'solid blue',
                 display: 'flex',
-                padding: 10,
+                padding: 5,
                 margin: 'auto',
                 width: '80%',
                 justifyContent: 'space-around',
             }}>
+             <Grid item xs={12} sm={12} md={12} lg={12} mb={4}>
+             <Typography variant="title" component="h3" align="center">Enter equipment details</Typography>
+            </Grid>
             <Grid item xs={12} sm={12} md={12} lg={5} gap={2}
             sx={{
               outline: 'solid blue',
