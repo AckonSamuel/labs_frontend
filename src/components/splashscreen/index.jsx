@@ -1,6 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Navbar from './../navbar';
@@ -10,20 +8,6 @@ import ExploreButton from './../explore-btn';
 import Image from 'mui-image';
 
 export default function SplashScreen() {
-  let navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const adminLogin = () => {
-    dispatch(() => {
-      navigate('auth/login');
-    })
-  };
-
-  const guestLogin = () => {
-    dispatch(() => {
-      navigate('auth/login');
-    })
-  }
 
   return (
     <Grid container sx={{
