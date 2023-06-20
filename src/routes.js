@@ -1,6 +1,7 @@
 import SplashScreen from "./components/splashscreen"
 import Login from "./components/Login";
 import Register from "./components/Register";
+import EquipmentForm from './components/equipment-form';
 
 const routes = [
     {
@@ -20,6 +21,12 @@ const routes = [
         key: 'register',
         route: '/register',
         component: <Register />,
+    },
+    {
+        name: 'equipment-form',
+        key: 'equipment-form',
+        route: '/equipment-form',
+        component: <EquipmentForm />,
     }
 ];
 
