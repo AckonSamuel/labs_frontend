@@ -2,6 +2,7 @@ import SplashScreen from "./components/splashscreen"
 import Login from "./components/Login";
 import Register from "./components/Register";
 import EquipmentForm from './components/equipment-form';
+import UploadImage from './components/upload-equipment-images';
 
 const routes = [
     {
@@ -27,6 +28,12 @@ const routes = [
         key: 'equipment-form',
         route: '/equipment-form',
         component: <EquipmentForm />,
+    },
+    {
+        name: 'upload-image',
+        key: 'upload-image',
+        route: '/upload-image',
+        component: <UploadImage />,
     }
 ];
 
