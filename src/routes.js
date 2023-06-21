@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import EquipmentForm from './components/equipment-form';
 import UploadImage from './components/upload-equipment-images';
+import VendorDetails from "./components/vendor-details";
 
 const routes = [
     {
@@ -34,6 +35,12 @@ const routes = [
         key: 'upload-image',
         route: '/upload-image',
         component: <UploadImage />,
+    },
+    {
+        name: 'vendor-details',
+        key: 'vendor-details',
+        route: '/vendor-details',
+        component: <VendorDetails />,
     }
 ];
 
