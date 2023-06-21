@@ -9,7 +9,6 @@ import SelectCategoryAndLab from './../select-category-and-lab';
 import EquipmentForm from './../equipment-form';
 import EquipmentSpecs from './../equipment-specs';
 import UploadEquipmentImages from './../upload-equipment-images';
-import VendorDetails from './../vendor-details';
 
 const AddEquipmentModal = () => {
     const [open, setOpen] = useState(false);
@@ -22,6 +21,7 @@ const AddEquipmentModal = () => {
     };
     const handleClose = () => {
         setOpen(false);
+        setCounter(0);
     };
 
     const descriptionElementRef = useRef(null);
@@ -39,7 +39,7 @@ const AddEquipmentModal = () => {
     const previous = () => {
         setCounter(counter - 1);
     };
-    const modalContent = [<EquipmentForm />, <EquipmentSpecs />, <UploadEquipmentImages />, <VendorDetails />, <SelectCategoryAndLab />];
+    const modalContent = [<EquipmentForm />, <EquipmentSpecs />, <UploadEquipmentImages />, <SelectCategoryAndLab />];
 
     return (
         <><Box>
