@@ -14,7 +14,7 @@ const UploadBox = () => {
         width: 440,
         height: 300,
         opacity: '1',
-        outline: 'solid blue',
+        
         margin: 'auto',
 
     }}>
