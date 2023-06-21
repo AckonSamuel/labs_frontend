@@ -12,19 +12,17 @@ export default function VendorDetails() {
             <Grid container sx={{
                 background: '#fff',
                 borderRadius: '32px',
-                outline: 'solid blue',
+                width: '100%',
                 display: 'flex',
                 padding: 5,
-                margin: 'auto',
-                width: '80%',
                 justifyContent: 'space-around',
             }}>
-             <Grid item xs={12} sm={12} md={12} lg={12} mb={4}>
+             <Grid item>
              <Typography variant="title" component="h3" align="center">Enter vendor details</Typography>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={5} gap={2}
+            <Grid item xs={12} sm={12} md={12} lg={12}
             sx={{
-              outline: 'solid blue',
+              
             }}>
             <Box mb={2}>
               <TextField
@@ -48,9 +46,9 @@ export default function VendorDetails() {
               />
             </Box>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={5}
+            <Grid item xs={12} sm={12} md={12} lg={12}
             sx={{
-              outline: 'solid blue',
+              
             }}>
             <Box mb={2}>
               <TextField
@@ -70,12 +68,7 @@ export default function VendorDetails() {
             </Box>
             </Grid>
             </Grid>
-            <Button color="warning">
-              Cancel
-            </Button>
-            <Button color="success" type="submit">
-              Save
-            </Button>
+           
         </Box>
   );
 }
