@@ -4,6 +4,9 @@ import Register from "./components/Register";
 import EquipmentForm from './components/equipment-form';
 import UploadImage from './components/upload-equipment-images';
 import VendorDetails from "./components/vendor-details";
+import EquipmentSpecs from "./components/equipment-specs";
+import SelectCategoryAndLab from "./components/select-category-and-lab";
+import AddEquipmentModal from "./components/add-equipment-modal";
 
 const routes = [
     {
@@ -41,6 +44,24 @@ const routes = [
         key: 'vendor-details',
         route: '/vendor-details',
         component: <VendorDetails />,
+    },
+    {
+        name: 'equipment-specs',
+        key: 'equipment-specs',
+        route: '/equipment-specs',
+        component: <EquipmentSpecs />,
+    },
+    {
+        name: 'select-category-and-lab',
+        key: 'select-category-and-lab',
+        route: '/select-category-and-lab',
+        component: <SelectCategoryAndLab />,
+    },
+    {
+        name: 'add-equipment-modal',
+        key: 'add-equipment-modal',
+        route: '/add-equipment-modal',
+        component: <AddEquipmentModal />,
     }
 ];
 
