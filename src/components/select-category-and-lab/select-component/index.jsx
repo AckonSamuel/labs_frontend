@@ -1,5 +1,7 @@
-import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { equipment } from '../../../redux/slices/add-equipment-slice';
 import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -20,8 +22,11 @@ const MenuProps = {
   },
 };
 
-export default function MultipleSelectChip({label, options}) {
-  const [itemName, setitemName] = React.useState([]);
+export default function MultipleSelectChip({label, registerValue, options}) {
+  const dispatch = useDispatch();
+  const { register, getValues}  = useForm();
+  const [ change, setChange ] = useState(false);
+  const [itemName, setitemName] = useState([]);
 
   const handleChange = (event) => {
     const {
@@ -70,6 +75,7 @@ export default function MultipleSelectChip({label, options}) {
 MultipleSelectChip.propTypes = {
     label: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    registerValue: PropTypes.string.isRequired,
 };
 
 
