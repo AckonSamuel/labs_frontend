@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { counter, clear } from './../../redux/slices/add-equipment-slice';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -11,17 +13,19 @@ import EquipmentSpecs from './../equipment-specs';
 import UploadEquipmentImages from './../upload-equipment-images';
 
 const AddEquipmentModal = () => {
+    const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState('paper');
-    const [counter, setCounter] = useState(0);
+    const selectCounter = useSelector((state) => state.addEquipmentReducer.counter, shallowEqual);
 
     const handleClickOpen = (scrollType) => () => {
+        dispatch(counter(0));
+        dispatch(clear());
         setOpen(true);
         setScroll(scrollType);
     };
     const handleClose = () => {
         setOpen(false);
-        setCounter(0);
     };
 
     const descriptionElementRef = useRef(null);
@@ -33,12 +37,7 @@ const AddEquipmentModal = () => {
             }
         }
     }, [open]);
-    const next = () => {
-        setCounter(counter + 1);
-    };
-    const previous = () => {
-        setCounter(counter - 1);
-    };
+
     const modalContent = [<EquipmentForm />, <EquipmentSpecs />, <UploadEquipmentImages />, <SelectCategoryAndLab />];
 
     return (
@@ -58,31 +57,13 @@ const AddEquipmentModal = () => {
                     Add Equipment
                 </DialogTitle>
                 <DialogContent dividers={scroll === "paper"} ref={descriptionElementRef}>
-                    {modalContent[counter]}
+                    {modalContent[selectCounter]}
                 </DialogContent>
             </Box>
             <DialogActions>
                 <Button onClick={handleClose}>
                     Cancel
                 </Button>
-                {
-                    counter > 0 && 
-                    <Button onClick={previous}>
-                    Previous
-                </Button> 
-                }
-                {
-                    counter !== modalContent.length - 1 &&
-                    <Button onClick={next}>
-                    Next
-                </Button>
-}
-{ counter === modalContent.length -1 &&
-                <Button>
-                Submit
-            </Button>
-                }
-
             </DialogActions>
         </Dialog></>
     );
