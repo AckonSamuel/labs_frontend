@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import { counter, equipment } from "../../redux/slices/add-equipment-slice";
+import { useForm } from 'react-hook-form';
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -6,6 +9,23 @@ import Grid from "@mui/material/Grid";
 import Typography from '@mui/material/Typography';
 
 export default function EquipmentForm() {
+  const dispatch = useDispatch();
+  const { register, getValues, handleSubmit }  = useForm();
+  const selectCounter = useSelector((state) => state.addEquipmentReducer.counter, shallowEqual);
+  const nextValue = selectCounter + 1;
+  const [ submitted, setSubmitted ] = useState(false);
+
+  const onSubmit = () => {
+    setSubmitted(true);
+  };
+
+  useEffect(() => {
+    if (submitted) {
+      setSubmitted(false);
+      const data = getValues();
+      dispatch(equipment(data));
+      dispatch(counter(nextValue));
+  }}, [submitted]);
 
   return (
         <Box component="form">
@@ -28,6 +48,8 @@ export default function EquipmentForm() {
                 type="text"
                 label="Name of Equipment"
                 fullWidth
+                required
+                {...register('equipment_name')}
               />
             </Box>
             <Box mb={2}>
@@ -35,6 +57,8 @@ export default function EquipmentForm() {
                 type="text"
                 label="Manufacturing Year"
                 fullWidth
+                required
+                {...register('manufacturing_year')}
               />
             </Box>
             </Grid>
@@ -46,6 +70,8 @@ export default function EquipmentForm() {
               <TextField
                 type="text"
                 label="Model of Equipment"
+                required
+                {...register('equipment_model')}
                 fullWidth
               />
             </Box>
@@ -53,6 +79,8 @@ export default function EquipmentForm() {
               <TextField
                 type="text"
                 label="Price of Equipment"
+                required
+                {...register('price')}
                 fullWidth
               />
             </Box>
@@ -64,12 +92,16 @@ export default function EquipmentForm() {
                 label="Description of Equipment"
                 multiline
                 minRows={4}
+                required
+                {...register('description')}
                 fullWidth
               />
             </Box>
+            <Button variant="contained" onClick={() => {
+              onSubmit();
+            }}>Next</Button>
             </Grid>
             </Grid>
-           
         </Box>
   );
 }
