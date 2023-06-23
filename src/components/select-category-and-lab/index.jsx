@@ -29,13 +29,13 @@ export default function SelectCategoryAndLab() {
               
             }}>
             <Box mb={2}>
-                <MultipleSelectChip label="Category" options={sampleCategory} />
+                <MultipleSelectChip label="Category" options={sampleCategory} registerValue="category" />
             </Box>
             <Box mb={2}>
-            <MultipleSelectChip label="Labs" options={sampleLabs} />
+            <MultipleSelectChip label="Labs" options={sampleLabs} registerValue="labs" />
             </Box>
             <Box mb={2}>
-            <MultipleSelectChip label="Vendor" options={sampleLabs} />
+            <MultipleSelectChip label="Vendor" options={sampleLabs} registerValue="vendor" />
             </Box>
             </Grid>
             </Grid>
