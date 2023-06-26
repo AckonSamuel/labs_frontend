@@ -7,6 +7,7 @@ import VendorDetails from "./components/vendor-details";
 import EquipmentSpecs from "./components/equipment-specs";
 import SelectCategoryAndLab from "./components/select-category-and-lab";
 import AddEquipmentModal from "./components/add-equipment-modal";
+import ResponsiveDrawer from "./components/sidenav";
 
 const routes = [
     {
@@ -62,6 +63,12 @@ const routes = [
         key: 'add-equipment-modal',
         route: '/add-equipment-modal',
         component: <AddEquipmentModal />,
+    },
+    {
+        name: 'responsive-drawer',
+        key: 'responsive-drawer',
+        route: '/responsive-drawer',
+        component: <ResponsiveDrawer />,
     }
 ];
 
